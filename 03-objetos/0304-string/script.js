@@ -68,3 +68,50 @@ precos.forEach((preco) => {
 });
 console.log(precos[0].padStart(12, '=-'));
 console.log(precos[2].padEnd(12, '=-'));
+
+frase = 'vrum ';
+console.log(frase.repeat(3)); // Repete a str n vezes
+
+let itens = 'Camisas Bonés Calças Bermudas Vestidos Saias';
+itens = itens.replace('Bermudas', 'Casacos'); // Troca parte da str por outra.
+console.log(itens);
+itens = itens.replace(/[ ]+/g, ', '); // Podemos utilizar uma regular expression ou um valor direto
+console.log(itens);
+
+let marcaCarros = 'Honda Nissan Mitsubishi Subaru Toyota Mazda';
+marcaCarros = marcaCarros.split(' '); // Divide a str de acordo com o padrão passado e retorna uma array.
+console.log(marcaCarros);
+
+let pecaRoupas = 'Camisas Bonés Calças Bermudas Vestidos Saias';
+pecaRoupas = pecaRoupas.split('s ');
+console.log(pecaRoupas);
+
+let marcaSapatos = 'Nike Adidas Puma Fila Asics';
+marcaSapatos = marcaSapatos.split('P');
+console.log(marcaSapatos);
+
+let nomes = 'João Caio André Josias Joaquim';
+nomes = nomes.split('');
+console.log(nomes);
+
+const htmlText = '<div>O melhor item</div><div>A melhor lista</div>';
+const htmlArray = htmlText.split('div');
+const htmlNovo = htmlArray.join('section');
+console.log(htmlArray);
+console.log(htmlNovo);
+
+const sexo1 = 'Feminino';
+const sexo2 = 'feminino';
+const sexo3 = 'FEMININO';
+console.log(sexo1.toLowerCase() == 'feminino'); // Retorna a str em letras maiúsculas
+console.log(sexo2.toLowerCase() === 'feminino');
+console.log(sexo3.toLowerCase() === 'feminino');
+console.log(sexo1.toUpperCase() === 'FEMININO'); // Retorna a str em letras minúsculas
+console.log(sexo2.toUpperCase() === 'FEMININO');
+console.log(sexo3.toUpperCase() === 'FEMININO');
+// OBS: Bom para verificarmos input de usuários
+
+const valor = '  R$ 23.00   ';
+console.log(valor.trim()); // Remove espaço em branco do início e final de uma str
+console.log(valor.trimStart()); // Apenas do início
+console.log(valor.trimEnd()); // Apenas do final
