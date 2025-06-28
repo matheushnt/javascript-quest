@@ -74,8 +74,57 @@ marcas.push('Renault', 'Volskwagen'); // Além de adicionar ao final do array, t
 console.log(marcas);
 
 const primeiroElemento = marcas.shift(); // Remove o primeiro elemento da array e retorna o mesmo
-const ultimoElemento = marcas.pop(); // Remove o último elemento da array e retorna o mesmo
+const ultimoElemento = marcas.pop(); // Remove o último elemento do array e retorna o mesmo
 console.log(primeiroElemento, ultimoElemento);
 
 marcas.reverse();
 console.log(marcas);
+
+let nomes = ['João', 'José', 'Jair'];
+console.log(nomes);
+console.log(nomes.splice(1, 0, 'Mário', 'Marcus')); // Adiciona valores no array a partir do index
+console.log(nomes);
+console.log(nomes.splice(2, 2, 'Miguel', 'Augusto')); // Remove a quantidade de itens que for passada no segundo parâmetro (retorna esses itens)
+console.log(nomes);
+
+const itens = ['item 0', 'item 1', 'item 2', 'item 3', 'item 4', 'item 5', 'item 6'];
+console.log(itens);
+console.log(itens.copyWithin(2, 0, 4)); // A partir do alvo, ele irá copiar o array começando do inicio até o final e vai preencher o mesmo com essa cópia
+
+console.log(['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'].fill('Banana', 0, 3)); //  Preenche o array com o valor, do início até o fim
+
+/*
+Métodos de acesso
+Os métodos abaixo não modificam o array original, apenas retornam um array modificada
+*/
+const transporte1 = ['Barco', 'Avião'];
+const transporte2 = ['Carro', 'Moto'];
+const transportes = transporte1.concat(transporte2);
+console.log(transportes);
+
+const maisTransportes = [].concat(transporte1, transporte2, 'Trem', 'Cruzeiro'); // Concatena o array com o valor passado
+console.log(maisTransportes);
+
+const linguagens = ['Java', 'JavaScript', 'Python', 'Go', 'PHP', 'Rust', 'C#', 'C', 'C++', 'Go', 'Swift'];
+
+console.log(linguagens.includes('Rust')); // Verifica se o valor está contido
+console.log(linguagens.includes('Assembly'));
+
+console.log(linguagens.indexOf('Go')); // Retorna o índice do elemento
+console.log(linguagens.lastIndexOf('Go')); // Retorna o índice do último elemento duplicado
+
+// junta todos os valores do array e retorna uma str com eles. Pode passar um valor como parâmetro, este será utilizado durante a junção
+const linguagensString = linguagens.join(', ');
+console.log(linguagensString);
+
+let htmlString = '<h2>Título Principal</h2>';
+htmlString = htmlString.split('h2');
+htmlString = htmlString.join('h1');
+console.log(htmlString);
+
+// Retorna os itens do array começando pelo início e indo até o valor de final
+console.log(linguagens.slice(3));
+console.log(linguagens.slice(1, 4));
+
+const cloneLinguagens = linguagens.slice();
+console.log(cloneLinguagens);
