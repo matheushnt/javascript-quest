@@ -103,7 +103,7 @@ const possuiFruta = frutas.some((item) => {
 console.log(possuiFruta);
 
 /* every(): se todos os returns das iterações forem truthy, o método irá retornar true. Se pelo menos um for falsy, ele irá retornar false */
-const nomes = ['João', 'Kayk', 'Gabriel', undefined];
+const nomes = ['João', 'Kayk', 'Gabriel'];
 const everyNomes = nomes.every((nome) => {
   console.log(nome);
   return nome;
@@ -113,3 +113,25 @@ console.log(everyNomes);
 const pares = [2, 4, 6, 8, 10];
 const everyPares = pares.every((n) => n % 2 === 0);
 console.log(everyPares);
+
+/* find(): retorna o valor atual da primeira iteração que retornar um truthy. findIndex(): retorna o índice do primeiro valor truthy que encontrar */
+const profissoes = ['engenheiro', 'médico', 'advogado', 'professor', 'programador', 'psicólogo', 'eletricista'];
+const profProgramador = profissoes.find((profissao) => {
+  return profissao === 'programador';
+});
+console.log(profProgramador);
+
+const indexAdvogado = profissoes.findIndex((profissao) => profissao === 'advogado');
+console.log(indexAdvogado);
+
+/* filter(): retorna uma array com a lista de valores que durante a sua iteração retornaram um valor truthy */
+const valoresRandom = ['Carro', 12, 0, 'Matheus', true, {}, 'Bike', undefined, 'João', null, 'Moto', ''];
+const valoresTruthy = valoresRandom.filter((item) => {
+  console.log(item);
+  return item;
+});
+console.log(valoresTruthy);
+
+const multiplosDeTres = [3, 4, 5, 6, 9, 10, 12, 13, 15];
+const multiplosDeTresFilter = multiplosDeTres.filter((n) => n % 3 === 0);
+console.log(multiplosDeTresFilter);
