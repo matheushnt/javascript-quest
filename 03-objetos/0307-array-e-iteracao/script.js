@@ -95,3 +95,21 @@ console.log(frutasRight);
 
 const frutasLeft = frutas.reduce((acc, fruta) => acc + ' ' + fruta);
 console.log(frutasLeft);
+
+/* some(): se pelo menos um return da iteração for truthy, ele retorna true */
+const possuiFruta = frutas.some((item) => {
+  return item === 'manga';
+});
+console.log(possuiFruta);
+
+/* every(): se todos os returns das iterações forem truthy, o método irá retornar true. Se pelo menos um for falsy, ele irá retornar false */
+const nomes = ['João', 'Kayk', 'Gabriel', undefined];
+const everyNomes = nomes.every((nome) => {
+  console.log(nome);
+  return nome;
+});
+console.log(everyNomes);
+
+const pares = [2, 4, 6, 8, 10];
+const everyPares = pares.every((n) => n % 2 === 0);
+console.log(everyPares);
