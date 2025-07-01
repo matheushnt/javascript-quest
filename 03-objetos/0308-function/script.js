@@ -93,3 +93,42 @@ const filtro = Array.prototype.filter.call(elementosLi, (item) => {
 });
 
 console.log(filtro);
+
+/* apply(): funciona como o call(), a única diferença é que os argumentos da função são passados através de um array */
+const numeros = [45, 2345, 5687, 123, 352, 875, 12, 67, 0, 235346, 12331, 432, 355, 2, 232];
+console.log(Math.max.call(null, numeros));
+console.log(Math.max.apply(null, numeros));
+
+/* Diferente de call() e apply(), não irá executar a função mas sim retornar a mesma com o novo contexto de this */
+const params = document.querySelectorAll('p');
+
+const filtragem = Array.prototype.filter.bind(params, (item) => {
+  return item.classList.contains('ativar');
+});
+
+console.log(filtragem());
+const $ = document.querySelectorAll.bind(document, 'p');
+console.log($());
+
+const carro = {
+  marca: 'Ford',
+  ano: 2018,
+  acelerar: function (aceleracao, tempo) {
+    return `${this.marca} acelerou ${aceleracao} em ${tempo}`;
+  },
+};
+
+const honda = {
+  marca: 'Honda',
+};
+const acelerarHonda = carro.acelerar.bind(honda);
+console.log(acelerarHonda);
+console.log(acelerarHonda(300, 50));
+
+function imc(altura, peso) {
+  return peso / (altura * altura);
+}
+
+const imc180 = imc.bind(null, 1.8);
+console.log(imc(1.8, 70));
+console.log(imc180(70));
