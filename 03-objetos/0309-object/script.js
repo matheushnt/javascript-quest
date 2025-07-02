@@ -31,7 +31,7 @@ const ferrari = Object.create(carro);
 ferrari.init('Ferrari', 'Purosangue', 2025);
 console.log(ferrari);
 
-/* Object.assign(): adiciona ao alvo as propriedades e métodos enumeráveis dos demais objetos. O assign irá modificar o objeto alvo */
+/* Object.assign(): adiciona ao alvo as props e métodos enumeráveis dos demais objetos. O assign irá modificar o objeto alvo */
 
 const funcoesAutomovel = {
   acelerar: function () {
@@ -60,8 +60,8 @@ Object.assign(carroPorsche, funcoesAutomovel, carro);
 console.log(motoKawasaki, carroPorsche);
 
 /*
-Object.defineProperties() adiciona ao alvo novas propriedades. A diferença aqui é a
-possibilidade de serem definidas as características dessas propriedades
+Object.defineProperties() adiciona ao alvo novas props. A diferença aqui é a
+possibilidade de serem definidas as características dessas props
 */
 const bike = {};
 Object.defineProperties(bike, {
@@ -96,3 +96,74 @@ Object.defineProperties(caminhao, {
 
 console.log(caminhao);
 caminhao.rodas = 8;
+
+/*
+Object.getOwnPropertyDescriptors(): lista todos os métodos e props de um objeto, com as suas devidas configurações
+*/
+console.log(Object.getOwnPropertyDescriptors(Array));
+console.log(Object.getOwnPropertyDescriptors(Array.prototype));
+console.log(Object.getOwnPropertyDescriptor(window, 'innerHeight')); // Verifica apenas uma propriedade do obj
+
+const contaBancaria = {
+  numConta: '1066117-4',
+  agencia: '0532',
+  banco: 'Banco do Brasil',
+};
+
+/* Object.keys(): retorna uma array com as chaves de todas as props diretas e enumeráveis do objeto */
+console.log(Object.keys(contaBancaria));
+console.log(Object.keys(Array)); // As props não são enumeráveis
+
+/* Object.values(): retorna uma array com os valores do objeto */
+console.log(Object.values(contaBancaria));
+console.log(Object.values(Array)); // As props não são enumeráveis, consequentemente os valores não são acessíveis
+
+/* Object.entries(): retorna uma array com array's contendo a chave e o valor */
+console.log(Object.entries(contaBancaria));
+console.log(Object.entries(Object));
+
+/* Object.getOwnPropertyNames(): Retorna um array com todas as props diretas do objeto (não retorna as do protótipo) */
+console.log(Object.getOwnPropertyNames(contaBancaria));
+console.log(Object.getOwnPropertyNames(Array));
+console.log(Object.getOwnPropertyNames(Array.prototype));
+
+/* Object.getPrototypeOf(): retorna o protótipo do objeto */
+console.log(Object.getPrototypeOf(contaBancaria));
+console.log(Object.getPrototypeOf(Array));
+console.log(Object.getPrototypeOf(''));
+
+/* Object.is(): verifica se os objetos são iguais e retorna true ou false */
+const fruta1 = ['banana', 'uva'];
+const fruta2 = ['banana', 'uva'];
+const fruta3 = fruta2;
+console.log(Object.is(fruta1, fruta2));
+console.log(Object.is(fruta2, fruta3));
+
+const produto = {
+  nome: 'Mesa de Escritório',
+  preco: 599.99,
+  estoque: 75,
+};
+
+/* Object.freeze(): impede qualquer mudança nas props */
+Object.freeze(produto);
+produto.preco = 799.99;
+produto.avaliacoes = '4,5 estrelas';
+console.log(produto);
+
+/* Object.seal() previne a adição de novas props e impede que as atuais sejam deletadas */
+Object.seal(produto);
+produto.categoria = 'móveis';
+produto.nome = 'Máquina de Lavar';
+delete produto.nome;
+console.log(produto);
+
+/* Object.preventExtensions() previne a adição de novas props, porém permite deletar as existentes */
+Object.preventExtensions(produto);
+produto.dimensoes = ['200cm', '80cm'];
+delete produto.nome;
+console.log(produto);
+
+console.log(Object.isFrozen(produto));
+console.log(Object.isSealed(produto));
+console.log(Object.isExtensible(produto));
