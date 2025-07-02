@@ -167,3 +167,57 @@ console.log(produto);
 console.log(Object.isFrozen(produto));
 console.log(Object.isSealed(produto));
 console.log(Object.isExtensible(produto));
+
+/* Prop constructor: retorna a função construtora */
+console.log(''.constructor);
+console.log(Number(2).constructor);
+console.log(true.constructor);
+console.log([].constructor);
+console.log({}.constructor);
+
+/* hasOwnProperty(): verifica se existe ou não a prop no obj */
+console.log(Array.hasOwnProperty('map'));
+console.log(Array.prototype.hasOwnProperty('map'));
+
+/* propertyIsEnumerable(): verifica se a prop é enumerável */
+console.log(Array.prototype.propertyIsEnumerable('map'));
+console.log(window.propertyIsEnumerable('innerHeight'));
+
+/* isPrototypeOf(): verifica se é o protótipo do valor passado */
+console.log(Array.prototype.isPrototypeOf([1, 2, 3, 4, 5]));
+console.log(String.prototype.isPrototypeOf('Matheus')); // É uma str primitiva
+console.log(String.prototype.isPrototypeOf(new String('Matheus'))); // É uma str criada por obj String
+
+/* typeof não é a melhor maneira de descobrir o tipo do objeto */
+const nome = 'Matheus';
+const idade = 20;
+const dados = ['Matheus', 20];
+const dadosCompletos = {
+  nome,
+  idade,
+  sexo: 'M',
+};
+const exibirDados = function () {
+  return dadosCompletos;
+};
+
+console.log(nome.toString());
+console.log(idade.toString());
+console.log(dados.toString());
+console.log(dadosCompletos.toString());
+console.log(exibirDados.toString());
+
+console.log(typeof dados);
+console.log(Object.prototype.toString.call(dados));
+
+console.log(typeof dadosCompletos);
+console.log(Object.prototype.toString.call(dadosCompletos));
+
+console.log(typeof idade);
+console.log(Object.prototype.toString.call(idade));
+
+console.log(typeof nome);
+console.log(Object.prototype.toString.call(nome));
+
+console.log(typeof exibirDados);
+console.log(Object.prototype.toString.call(exibirDados));
