@@ -1,6 +1,6 @@
 export default function outsideClick(elemento, eventos, callback) {
   const html = document.documentElement;
-  const elemento = 'outside';
+  const outside = 'outside';
 
   if (!elemento.hasAttribute(outside)) {
     eventos.forEach((evento) => {
