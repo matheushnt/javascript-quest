@@ -1,10 +1,10 @@
 export default function outsideClick(elemento, eventos, callback) {
   const html = document.documentElement;
-  const outside = 'outside';
+  const outside = 'data-outside';
 
   if (!elemento.hasAttribute(outside)) {
     eventos.forEach((evento) => {
-      html.addEventListener(evento, handleOutsideClick);
+      setTimeout(() => html.addEventListener(evento, handleOutsideClick));
     });
     elemento.setAttribute(outside, '');
   }
