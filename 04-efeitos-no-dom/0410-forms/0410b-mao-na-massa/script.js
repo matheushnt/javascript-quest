@@ -39,11 +39,25 @@ function handleChange(e) {
 
   handleStyle[nome](valor);
 
+  saveValues(nome, valor);
   showCSS();
 }
 
 function showCSS() {
   cssText.innerHTML = '<span>' + btn.style.cssText.split('; ').join(';<span></span>');
 }
+
+function saveValues(nome, valor) {
+  localStorage[nome] = valor;
+}
+
+function setValues() {
+  const props = Object.keys(localStorage);
+  props.forEach((prop) => {
+    controles.elements[prop].value = localStorage[prop];
+    handleStyle[prop](localStorage[prop]);
+  });
+}
+setValues();
 
 controles.addEventListener('change', handleChange);
