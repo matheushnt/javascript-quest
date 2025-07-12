@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "aula": "JavaScript",
+    "tempo": "25min"
+  },
+  {
+    "id": 2,
+    "aula": "Python",
+    "tempo": "20min"
+  },
+  {
+    "id": 3,
+    "aula": "PHP",
+    "tempo": "45min"
+  },
+  {
+    "id": 4,
+    "aula": "JavaScript",
+    "tempo": "30min"
+  },
+  {
+    "id": 5,
+    "aula": "Java",
+    "tempo": "50min"
+  }
+]
