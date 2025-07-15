@@ -10,17 +10,21 @@ export default function initFetchAnimais() {
   };
 
   const fetchAnimais = async url => {
-    const animaisResponse = await fetch(url);
-    const animaisJSON = await animaisResponse.json();
+    try {
+      const animaisResponse = await fetch(url);
+      const animaisJSON = await animaisResponse.json();
 
-    const numerosGrid = document.querySelector('.numeros-grid');
+      const numerosGrid = document.querySelector('.numeros-grid');
 
-    animaisJSON.forEach(animal => {
-      const animalDiv = createAnimal(animal);
-      numerosGrid.appendChild(animalDiv);
-    });
+      animaisJSON.forEach(animal => {
+        const animalDiv = createAnimal(animal);
+        numerosGrid.appendChild(animalDiv);
+      });
 
-    initAnimaNumeros();
+      initAnimaNumeros();
+    } catch (erro) {
+      console.log(erro);
+    }
   };
 
   fetchAnimais('./api-fake/animais.json');
