@@ -146,3 +146,30 @@ console.log('11_22 33-44 55é66 77e88'.replace(regexpDigito, 'X'));
 /* Not Word Boundary \B: É o contrário do \b */
 regexpDigito = /\B\d+\B/gi;
 console.log('11_22 33-44 55é66 77e88'.replace(regexpDigito, 'X'));
+
+/* Anchor Beginning (^): a busca deve começar no início da linha */
+regexp = /^\w+/g;
+console.log('andre@origamid.com'.replace(regexp, 'X'));
+console.log('contato@origamid.com'.replace(regexp, 'X'));
+console.log('Rua Malote Katropa'.replace(regexp, 'X'));
+
+/* Anchor End: a busca deve iniciar no final da linha */
+regexp = /\w+$/gm;
+console.log(
+  `andre@origamid.com
+  contato@origamid.com
+  Rua Castelo da Realeza`.replace(regexp, 'X'),
+);
+// Flag m: multiline
+
+/* Line Feed: seleciona o final da linha, quando criamos uma nova */
+regexp = /\n/g;
+console.log(`andre@origamid.com\ncontato@origamid.com`.replace(regexp, '---'));
+console.log(
+  `andre@origamid.com
+contato@origamid.com`.replace(regexp, 'X'),
+);
+
+/* Unicode: seleciona o caractere unicode, de acordo com o código passado em \uXXXX */
+regexp = /\u0040|\u00A9/g;
+console.log('andre@origamid.com ©'.replace(regexp, '---'));
