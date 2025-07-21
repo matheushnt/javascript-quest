@@ -9,6 +9,6 @@ const cnpjs = [
   '00.000.000.0000.00',
 ];
 
-for (cnpj of cnpjs) {
+for (const cnpj of cnpjs) {
   console.log(cnpj, cnpj.match(regexpCNPJ));
 }

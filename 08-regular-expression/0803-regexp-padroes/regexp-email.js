@@ -10,6 +10,6 @@ const emails = [
   'c@contato.cc',
 ];
 
-for (email of emails) {
+for (const email of emails) {
   console.log(email, email.match(regexpEmail));
 }
