@@ -18,8 +18,23 @@
       font-size: 1rem;
       box-sizing: border-box;
     }
+    input.valido {
+      border-color: green;
+    }
+    input.erro {
+      border-color: red;
+    }
     input::placeholder {
       color: rgba(0, 0, 0, 0.2);
+    }
+    .erro-text {
+      display: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+    }
+    .erro-text.ativo {
+      display: block;
+      color: red;
     }
   </style>
 </head>
