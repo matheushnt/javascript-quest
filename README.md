@@ -64,6 +64,15 @@ Mergulhei de cabeça nessa linguagem, e durante essa jornada aprendi diversas co
 - Loops e Iteráveis
 - Expressões Regulares
 
+## Automação
+
+Aprendi a configurar as ferramentas:
+- npm
+- ESLint
+- Webpack
+- Babel
+
 ---
 
 Esta jornada por JavaScript me permitiu ir muito além da sintaxe (sintaxe a gente aprende, é algo fácil), explorando nuances da linguagem e suas aplicações no mundo real. Este repositório é um registro do meu progresso. Progresso este que foi feito com muito trabalho árduo, e os tutoriais, artigos, vídeos e documentação me ajudaram no processo.
+
